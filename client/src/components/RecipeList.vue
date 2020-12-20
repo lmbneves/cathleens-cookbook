@@ -1,13 +1,14 @@
 <template>
   <div class="recipes-container">
-    <p v-for="(recipe, index) in recipes" v-bind:key="index">{{recipe.title}}</p>
+    <h1>Recipe List</h1>
+    <p v-for="(recipe, index) in recipes" v-bind:key="index">{{ recipe.title }}</p>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'RecipeViewer',
-    prop: {
+    name: 'RecipeList',
+    props: {
       recipes: Array
     }
   }

@@ -17,14 +17,18 @@ export default {
   components: {
     RecipeList,
   },
-  data: () => ({
-    recipes: null
-  }),
+  data: function () {
+    return {
+      recipes: null
+    }
+  },
   methods: {
     getRecipes: function () {
       axios
         .get('http://localhost:3000/recipes')
-        .then(response => (this.recipes = response.data))
+        .then((res) => {
+          this.recipes = res.data;
+        })
     }
   },
   mounted: function () {

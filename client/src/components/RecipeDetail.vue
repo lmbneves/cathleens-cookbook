@@ -9,9 +9,9 @@
 
   export default {
     name: 'RecipeDetail',
-    data: () => ({
+    data: function () {
       //
-    }),
+    },
   }
 </script>
 

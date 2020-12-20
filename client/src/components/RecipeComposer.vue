@@ -100,55 +100,57 @@
   export default {
     name: 'RecipeComposer',
     components: { TiptapVuetify },
-    data: () => ({
-      ing_extensions: [
-        History,
-        Bold,
-        Italic,
-        Underline,
-        Strike,
-        ListItem,
-        BulletList,
-        OrderedList,
-        [Heading, {
-          options: {
-            levels: [1, 2, 3]
-          }
-        }],
-        Blockquote,
-        Link,
-        HardBreak
-      ],
-      dir_extensions: [
-        History,
-        Bold,
-        Italic,
-        Underline,
-        Strike,
-        ListItem,
-        BulletList,
-        OrderedList,
-        [Heading, {
-          options: {
-            levels: [1, 2, 3]
-          }
-        }],
-        Blockquote,
-        Link,
-        HardBreak
-      ],
-      title: "",
-      prep_time: "",
-      cook_time: "",
-      servings: "",
-      description: "",
-      ingredients: "",
-      directions: ""
-    }),
+    data: function () {
+      return {
+        ing_extensions: [
+          History,
+          Bold,
+          Italic,
+          Underline,
+          Strike,
+          ListItem,
+          BulletList,
+          OrderedList,
+          [Heading, {
+            options: {
+              levels: [1, 2, 3]
+            }
+          }],
+          Blockquote,
+          Link,
+          HardBreak
+        ],
+        dir_extensions: [
+          History,
+          Bold,
+          Italic,
+          Underline,
+          Strike,
+          ListItem,
+          BulletList,
+          OrderedList,
+          [Heading, {
+            options: {
+              levels: [1, 2, 3]
+            }
+          }],
+          Blockquote,
+          Link,
+          HardBreak
+        ],
+        title: "",
+        prep_time: "",
+        cook_time: "",
+        servings: "",
+        description: "",
+        ingredients: "",
+        directions: ""
+      }
+    },
     methods: {
       postCharacter: function () {
         axios
-          .post('http://localhost:3000/characters', {
+          .post('http://localhost:3000/recipes', {
             title: this.title,
             prep_time: this.prep_time,
             cook_time: this.cook_time,
