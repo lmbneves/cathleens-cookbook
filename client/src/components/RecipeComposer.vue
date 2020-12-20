@@ -144,7 +144,21 @@
       description: "",
       ingredients: "",
       directions: ""
-    })
+    }),
+    methods: {
+      postCharacter: function () {
+        axios
+          .post('http://localhost:3000/characters', {
+            title: this.title,
+            prep_time: this.prep_time,
+            cook_time: this.cook_time,
+            servings: this.servings,
+            description: this.description,
+            ingredients: this.ingredients,
+            directions: this.directions
+          });
+      }
+    }
   }
 </script>
 
