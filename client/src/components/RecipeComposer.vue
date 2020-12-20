@@ -20,6 +20,7 @@
             <v-col
               cols="4">
               <v-text-field
+                v-model="prep_time"
                 label="Prep time"
                 prepend-inner-icon="mdi-alarm-check"
                 outlined
@@ -28,6 +29,7 @@
             <v-col
               cols="4">
               <v-text-field
+                v-model="cook_time"
                 label="Cook time"
                 prepend-inner-icon="mdi-pot-steam"
                 outlined
@@ -36,6 +38,7 @@
             <v-col
               cols="4">
               <v-text-field
+                v-model="num_servings"
                 label="# of servings"
                 prepend-inner-icon="mdi-account-multiple"
                 outlined
@@ -48,11 +51,40 @@
           <v-row>
             <v-col
               cols="12">
+              <v-textarea
+                v-model="description"
+                label="Recipe description"
+                outlined>
+              </v-textarea>
+            </v-col>
+          </v-row>
+        </v-container>
+
+        <!-- ingredients -->
+        <v-container>
+          <v-row>
+            <v-col
+              cols="12">
               <tiptap-vuetify
-                v-model="content"
-                :extensions="extensions"
+                v-model="ingredients"
+                :extensions="ing_extensions"
                 :toolbar-attributes="{ color: 'yellow' }"
-                placeholder="Write about your recipe..."
+                placeholder="List the ingredients your recipe needs..."
+                />
+            </v-col>
+          </v-row>
+        </v-container>
+
+        <!-- directions -->
+        <v-container>
+          <v-row>
+            <v-col
+              cols="12">
+              <tiptap-vuetify
+                v-model="directions"
+                :extensions="dir_extensions"
+                :toolbar-attributes="{ color: 'blue' }"
+                placeholder="Provide recipe instructions..."
                 />
             </v-col>
           </v-row>
@@ -69,7 +101,25 @@
     name: 'RecipeComposer',
     components: { TiptapVuetify },
     data: () => ({
-      extensions: [
+      ing_extensions: [
+        History,
+        Bold,
+        Italic,
+        Underline,
+        Strike,
+        ListItem,
+        BulletList,
+        OrderedList,
+        [Heading, {
+          options: {
+            levels: [1, 2, 3]
+          }
+        }],
+        Blockquote,
+        Link,
+        HardBreak
+      ],
+      dir_extensions: [
         History,
         Bold,
         Italic,
@@ -88,7 +138,12 @@
         HardBreak
       ],
       title: "",
-      content: ""
+      prep_time: "",
+      cook_time: "",
+      servings: "",
+      description: "",
+      ingredients: "",
+      directions: ""
     })
   }
 </script>
