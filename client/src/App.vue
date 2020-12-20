@@ -1,6 +1,13 @@
 <template>
   <v-app>
-    <!-- <v-app-bar> -->
+    <v-app-bar flat app>
+      <v-container>
+        <v-layout>
+          <v-icon>mdi-book-open-page-variant-outline</v-icon>
+          <v-toolbar-title class="ml-2">Cathleen's Cookbook</v-toolbar-title>
+        </v-layout>
+      </v-container>
+    </v-app-bar>
 
     <v-main>
       <RecipeList :recipes="recipes"/>
