@@ -89,6 +89,16 @@
             </v-col>
           </v-row>
         </v-container>
+
+        <v-container>
+          <v-row>
+            <v-spacer></v-spacer>
+            <v-btn
+              type="submit">
+            Submit
+            </v-btn>
+          </v-row>
+        </v-container>
       </v-form>
     </div>
   </v-container>

@@ -14,6 +14,7 @@
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn
+        :to="{ path: '/recipes/' + recipe._id }"
         color="orange"
         text>
         View
