@@ -12,14 +12,30 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import RecipeCard from './RecipeCard'
+  
   export default {
     name: 'RecipeList',
     components: {
       RecipeCard
     },
-    props: {
-      recipes: Array
+    data: function () {
+      return {
+        recipes: null
+      }
+    },
+    methods: {
+      getRecipes: function () {
+        axios
+          .get('http://localhost:3000/recipes')
+          .then((res) => {
+            this.recipes = res.data;
+          })
+      }
+    },
+    mounted: function () {
+      this.getRecipes();
     }
   }
 </script>

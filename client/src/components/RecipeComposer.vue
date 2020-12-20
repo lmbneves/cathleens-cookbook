@@ -95,6 +95,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, BulletList, OrderedList, ListItem, Link, Blockquote, HardBreak, History } from 'tiptap-vuetify'
 
   export default {

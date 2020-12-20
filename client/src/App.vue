@@ -1,49 +1,47 @@
 <template>
   <v-app>
-    <v-app-bar flat app>
+    <v-app-bar flat app class="navbar">
       <v-container>
         <v-layout>
-          <v-icon>mdi-book-open-page-variant-outline</v-icon>
-          <v-toolbar-title class="ml-2">Cathleen's Cookbook</v-toolbar-title>
+          <router-link to="/">
+            <v-icon>mdi-book-open-page-variant-outline</v-icon>
+            <span class="app-name">Cathleen's Cookbook</span>
+          </router-link>
+          <v-spacer></v-spacer>
+          <router-link to="/add-recipe">
+            <v-btn depressed>
+              <v-icon left>mdi-book-plus-outline</v-icon>
+              Add recipe
+            </v-btn>
+          </router-link>
         </v-layout>
       </v-container>
     </v-app-bar>
 
     <v-main>
-      <RecipeList :recipes="recipes"/>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import axios from 'axios'
-import RecipeList from './components/RecipeList';
-
 export default {
   name: 'App',
-  components: {
-    RecipeList,
-  },
   data: function () {
     return {
-      recipes: null
+      //
     }
-  },
-  methods: {
-    getRecipes: function () {
-      axios
-        .get('http://localhost:3000/recipes')
-        .then((res) => {
-          this.recipes = res.data;
-        })
-    }
-  },
-  mounted: function () {
-    this.getRecipes();
   }
 };
 </script>
 
 <style scoped>
+.navbar .app-name {
+  color: rgb(41, 41, 41);
+  margin-left: 10px;
+}
 
+.navbar a {
+  text-decoration: none;
+}
 </style>
