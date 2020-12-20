@@ -3,21 +3,32 @@
     <!-- <v-app-bar> -->
 
     <v-main>
-      <RecipeComposer />
+      <RecipeList :recipes="recipes"/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import RecipeComposer from './components/RecipeComposer';
+import axios from 'axios'
+import RecipeList from './components/RecipeList';
 
 export default {
   name: 'App',
   components: {
-    RecipeComposer,
+    RecipeList,
   },
   data: () => ({
-    //
+    recipes: null
   }),
+  methods: {
+    getRecipes: function () {
+      axios
+        .get('http://localhost:3000/recipes')
+        .then(response => (this.recipes = response.data))
+    }
+  },
+  mounted: function () {
+    this.getRecipes();
+  }
 };
 </script>
