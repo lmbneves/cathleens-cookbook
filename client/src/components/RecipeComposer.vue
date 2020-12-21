@@ -9,7 +9,6 @@
         </v-col>
       </v-row>
       <v-form 
-        v-model="valid"
         ref="add-recipe-form">
         <v-container>
           <v-row>
@@ -29,7 +28,7 @@
                   class="recipe-stats__input"
                   outlined></v-text-field>
                 <v-text-field
-                  v-model="num_servings"
+                  v-model="servings"
                   label="How many served?"
                   prepend-inner-icon="mdi-account-multiple"
                   class="recipe-stats__input"
@@ -86,7 +85,8 @@
                 dark
                 large
                 color="#7C6A9C"
-                type="submit">
+                type="submit"
+                v-on:click="postRecipe">
                 Add Recipe
               </v-btn>
             </v-col>
@@ -143,7 +143,7 @@
       }
     },
     methods: {
-      postCharacter: function () {
+      postRecipe: function () {
         axios
           .post('http://localhost:3000/recipes', {
             title: this.title,
