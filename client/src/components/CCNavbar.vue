@@ -1,16 +1,24 @@
 <template>
-  <v-app-bar flat app class="navbar">
+  <v-app-bar 
+    app
+    color="#B28A82"
+    dark 
+    class="navbar">
     <v-container>
       <v-layout>
         <router-link to="/">
-          <v-btn depressed>
+          <v-btn 
+            color="#B28A82"
+            depressed>
             <v-icon left>mdi-book-open-page-variant-outline</v-icon>
             <span class="app-name">Cathleen's Cookbook</span>
           </v-btn>
         </router-link>
         <v-spacer></v-spacer>
         <router-link to="/add-recipe">
-          <v-btn depressed>
+          <v-btn 
+            color="#B28A82"
+            depressed>
             <v-icon left>mdi-book-plus-outline</v-icon>
             Add recipe
           </v-btn>
