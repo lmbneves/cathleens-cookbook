@@ -20,11 +20,11 @@ router.get('/:id', getRecipe, (req, res) => {
 // POST create one recipe
 router.post('/', async (req, res) => {
   const recipe = new Recipe({
-    title: req.body.title,
+    title: formatTitle(req.body.title),
     prep_time: req.body.prep_time,
     cook_time: req.body.cook_time,
     servings: req.body.servings,
-    description: req.body.description,
+    description: formatDesc(req.body.description),
     ingredients: req.body.ingredients,
     directions: req.body.directions,
     img_url: req.body.img_url
@@ -60,6 +60,22 @@ async function getRecipe(req, res, next) {
 
   res.recipe = recipe
   next()
+}
+
+function formatTitle(str) {
+  if (str.substring(str.length-1) == ".") {
+    str = str.substring(0, myUrl.length-1);
+  }
+
+  return str;
+}
+
+function formatDesc(str) {
+  if (str.substring(str.length-1) != "." || str.substring(str.length-1) != "!") {
+    str += ".";
+  }
+
+  return str;
 }
 
 module.exports = router;
