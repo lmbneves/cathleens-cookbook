@@ -82,7 +82,7 @@
 
 <style scoped>
 .recipe-title {
-  font-family: 'Lobster', sans-serif;
+  font-family: 'Oleo Script', sans-serif;
   font-size: 42pt;
   word-spacing: 3pt;
 }

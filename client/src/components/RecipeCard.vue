@@ -3,11 +3,11 @@
     <v-img
       class="white--text align-end"
       height="200px"
-      src="https://www.simplyrecipes.com/wp-content/uploads/2007/01/homemade-pizza-horiz-a-1200.jpg">
-      <v-card-title>{{ recipe.title }}</v-card-title>
+      :src=recipe.img_url>
     </v-img>
     
-    <v-card-text class="text--primary">
+    <v-card-title class="recipe-card__title">{{ recipe.title }}</v-card-title>
+    <v-card-text class="recipe-card__desc">
       {{ recipe.description }}
     </v-card-text>
 
@@ -15,7 +15,7 @@
       <v-spacer></v-spacer>
       <v-btn
         :to="{ path: '/recipes/' + recipe._id }"
-        color="orange"
+        color="#7C6A9C"
         text>
         View
       </v-btn>
