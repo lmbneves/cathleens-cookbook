@@ -15,7 +15,7 @@
       <v-spacer></v-spacer>
       <v-btn
         :to="{ path: '/recipes/' + recipe._id }"
-        color="#7C6A9C"
+        color="#6D5C88"
         text>
         View
       </v-btn>

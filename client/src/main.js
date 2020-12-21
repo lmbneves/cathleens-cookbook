@@ -9,6 +9,7 @@ import 'tiptap-vuetify/dist/main.css'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
+import "@/assets/css/main.css"
 
 Vue.config.productionTip = false
 

@@ -42,13 +42,13 @@
         <v-col
           cols="3">
           <h2 class="pb-4">Ingredients</h2>
-          <p class="recipe-ingredients__content">{{ recipe.ingredients }}</p>
+          <p v-html="recipe.ingredients" class="recipe-ingredients__content"></p>
         </v-col>
         <v-spacer></v-spacer>
         <v-col
           cols="7">
           <h2 class="pb-4">Directions</h2>
-          <p>{{ recipe.directions }}</p>
+          <p v-html="recipe.directions"></p>
         </v-col>
       </v-row>
     </v-container>
@@ -93,7 +93,7 @@
 }
 
 .recipe-stats {
-  background-color: #B7B8CA;
+  background-color: #E7E1F5;
   border-radius: 2px;
   font-weight: 700;
 }
@@ -109,6 +109,6 @@
 
 .recipe-ingredients__content {
   min-height: 200px;
-  border-right: 1px solid #B7B8CA;
+  border-right: 1px solid #AFABC3;
 }
 </style>
