@@ -28,6 +28,10 @@ const recipeSchema = new mongoose.Schema({
   directions: {
     type: String,
     required: true
+  },
+  img_url: {
+    type: String,
+    required: true
   }
 });
 

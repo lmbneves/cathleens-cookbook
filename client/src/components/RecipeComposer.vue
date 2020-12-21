@@ -1,102 +1,95 @@
 <template>
-  <v-container class="pa-16">
+  <v-container class="pl-16 pr-16 pt-10">
     <div class="recipe-composer">
-      <h1>Add a recipe</h1>
+      <v-row>
+        <v-col
+          cols="12"
+          align="center">  
+          <h1 class="pb-10">Add a recipe</h1>
+        </v-col>
+      </v-row>
       <v-form 
         v-model="valid"
-        ref="add-recipe-form" >
+        ref="add-recipe-form">
         <v-container>
           <v-row>
             <v-col
-              cols="12">
+              cols="4">
+              <div class="pt-6 pb-2 pl-6 pr-6 recipe-stats">
+                <v-text-field
+                  v-model="prep_time"
+                  label="Prep time"
+                  prepend-inner-icon="mdi-alarm-check"
+                  class="recipe-stats__input"
+                  outlined></v-text-field>
+                <v-text-field
+                  v-model="cook_time"
+                  label="Cook time"
+                  prepend-inner-icon="mdi-pot-steam"
+                  class="recipe-stats__input"
+                  outlined></v-text-field>
+                <v-text-field
+                  v-model="num_servings"
+                  label="How many served?"
+                  prepend-inner-icon="mdi-account-multiple"
+                  class="recipe-stats__input"
+                  outlined></v-text-field>
+              </div>
+            </v-col>
+            <v-col
+              cols="8">
               <v-text-field
                 v-model="title"
                 label="Title"
-                outlined
-              ></v-text-field>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col
-              cols="4">
-              <v-text-field
-                v-model="prep_time"
-                label="Prep time"
-                prepend-inner-icon="mdi-alarm-check"
-                outlined
-              ></v-text-field>
-            </v-col>
-            <v-col
-              cols="4">
-              <v-text-field
-                v-model="cook_time"
-                label="Cook time"
-                prepend-inner-icon="mdi-pot-steam"
-                outlined
-              ></v-text-field>
-            </v-col>
-            <v-col
-              cols="4">
-              <v-text-field
-                v-model="num_servings"
-                label="# of servings"
-                prepend-inner-icon="mdi-account-multiple"
-                outlined
-              ></v-text-field>
-            </v-col>
-          </v-row>
-        </v-container>
-
-        <v-container>
-          <v-row>
-            <v-col
-              cols="12">
+                outlined></v-text-field>
               <v-textarea
                 v-model="description"
-                label="Recipe description"
-                outlined>
-              </v-textarea>
+                label="Description"
+                class="recipe-description__input"
+                outlined></v-textarea>
+              <v-text-field
+                v-model="img_url"
+                label="Image URL"
+                outlined></v-text-field>
             </v-col>
           </v-row>
-        </v-container>
-
-        <!-- ingredients -->
-        <v-container>
           <v-row>
             <v-col
-              cols="12">
+              cols="4">
+              <h2 class="pb-4">Ingredients</h2>
               <tiptap-vuetify
-                v-model="ingredients"
-                :extensions="ing_extensions"
-                :toolbar-attributes="{ color: 'yellow' }"
-                placeholder="List the ingredients your recipe needs..."
-                />
+                  v-model="ingredients"
+                  :extensions="ing_extensions"
+                  :card-props="{ outlined: true }"
+                  :toolbar-attributes="{ color: '#B7B8CA' }"
+                  placeholder="List recipe ingredients..."
+                  />
             </v-col>
-          </v-row>
-        </v-container>
-
-        <!-- directions -->
-        <v-container>
-          <v-row>
             <v-col
-              cols="12">
+              cols="8">
+              <h2 class="pb-4">Directions</h2>
               <tiptap-vuetify
-                v-model="directions"
-                :extensions="dir_extensions"
-                :toolbar-attributes="{ color: 'blue' }"
-                placeholder="Provide recipe instructions..."
-                />
+                  v-model="directions"
+                  :extensions="dir_extensions"
+                  :toolbar-attributes="{ color: '#B7B8CA' }"
+                  :card-props="{ outlined: true }"
+                  placeholder="Provide recipe instructions..."
+                  />
             </v-col>
           </v-row>
-        </v-container>
-
-        <v-container>
           <v-row>
             <v-spacer></v-spacer>
-            <v-btn
-              type="submit">
-            Submit
-            </v-btn>
+            <v-col
+              cols="2"
+              align="right">
+              <v-btn
+                dark
+                large
+                color="#7C6A9C"
+                type="submit">
+                Add Recipe
+              </v-btn>
+            </v-col>
           </v-row>
         </v-container>
       </v-form>
@@ -117,17 +110,8 @@
           History,
           Bold,
           Italic,
-          Underline,
-          Strike,
           ListItem,
           BulletList,
-          OrderedList,
-          [Heading, {
-            options: {
-              levels: [1, 2, 3]
-            }
-          }],
-          Blockquote,
           Link,
           HardBreak
         ],
@@ -138,7 +122,6 @@
           Underline,
           Strike,
           ListItem,
-          BulletList,
           OrderedList,
           [Heading, {
             options: {
@@ -155,7 +138,8 @@
         servings: "",
         description: "",
         ingredients: "",
-        directions: ""
+        directions: "",
+        img_url: ""
       }
     },
     methods: {
@@ -168,7 +152,8 @@
             servings: this.servings,
             description: this.description,
             ingredients: this.ingredients,
-            directions: this.directions
+            directions: this.directions,
+            img_url: this.img_url
           });
       }
     }
@@ -176,15 +161,43 @@
 </script>
 
 <style scoped>
+.recipe-title {
+  font-family: 'Lobster', sans-serif;
+  font-size: 42pt;
+  word-spacing: 3pt;
+}
+
+.recipe-subtitle {
+  font-size: 14pt;
+  font-weight: 300;
+}
+
+.recipe-stats {
+  background-color: #B7B8CA;
+  border-radius: 2px;
+}
+
+.recipe-stats__input >>> div.v-input__slot {
+  background-color: white;
+}
+
+.recipe-description__input >>> textarea {
+  max-height: 109px;
+}
+
 .tiptap-vuetify-editor {
   width: 100%;
 }
 
 .tiptap-vuetify-editor >>> .tiptap-vuetify-editor__content {
-	min-height: 120px;
+	min-height: 160px;
 }
 
 .tiptap-vuetify-editor >>> .ProseMirror {
-	min-height: 100px;
+	min-height: 160px;
+}
+
+.recipe-composer >>> input[type="submit"] {
+  background-color: #B28A82;
 }
 </style>

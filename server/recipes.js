@@ -26,7 +26,8 @@ router.post('/', async (req, res) => {
     servings: req.body.servings,
     description: req.body.description,
     ingredients: req.body.ingredients,
-    directions: req.body.directions
+    directions: req.body.directions,
+    img_url: req.body.img_url
   });
 
   try {
