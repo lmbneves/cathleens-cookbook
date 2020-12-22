@@ -47,8 +47,13 @@ router.patch('/:id', getRecipe, (req, res) => {
 });
 
 // DELETE remove one recipe
-router.delete('/:id', getRecipe, (req, res) => {
-  
+router.delete('/:id', getRecipe, async (req, res) => {
+  try {
+    await res.recipe.remove();
+    res.json({ message: 'Deleted this recipe' });
+  } catch(err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 async function getRecipe(req, res, next) {
