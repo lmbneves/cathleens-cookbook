@@ -42,8 +42,8 @@ router.post('/', async (req, res) => {
 });
 
 // PATCH update one recipe
-router.patch('/:id', getRecipe, (req, res) => {
-  
+router.patch('/:id', getRecipe, async (req, res) => {
+
 });
 
 // DELETE remove one recipe

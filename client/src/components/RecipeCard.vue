@@ -28,13 +28,16 @@
           </v-btn>
         </template>
         <v-list>
-          <v-list-item>
-            <v-btn
-              width="100%"
-              depressed>
-              Edit
-            </v-btn>
-          </v-list-item>
+          <!-- <v-list-item>
+            <router-link 
+              v-if="recipe.add_method === 'link'">
+              <v-btn
+                width="100%"
+                depressed>
+                Edit
+              </v-btn>
+            </router-link>
+          </v-list-item> -->
           <v-list-item>
             <v-btn
               width="100%"
@@ -71,5 +74,9 @@
 </script>
 
 <style scoped>
+.recipe-card__edit a {
+  text-decoration: none;
+  width: 100%;
+}
 
 </style>
