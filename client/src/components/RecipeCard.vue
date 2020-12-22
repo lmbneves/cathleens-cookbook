@@ -62,12 +62,15 @@
     },
     methods: {
       deleteRecipe: function () {
-        axios
-          .delete('http://localhost:3000/recipes/' + this.recipe._id)
-          .then((res) => {
-            console.log(res);
-            location.reload();
-          })
+
+        if (confirm("Are you sure you want to delete this recipe?")) {
+          axios
+            .delete('http://localhost:3000/recipes/' + this.recipe._id)
+            .then((res) => {
+              console.log(res);
+              location.reload();
+            });
+        }
       }
     }
   }
