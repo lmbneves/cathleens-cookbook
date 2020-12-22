@@ -21,13 +21,16 @@ router.get('/:id', getRecipe, (req, res) => {
 router.post('/', async (req, res) => {
   const recipe = new Recipe({
     title: formatTitle(req.body.title),
+    add_method: req.body.add_method,
     prep_time: req.body.prep_time,
     cook_time: req.body.cook_time,
     servings: req.body.servings,
     description: formatDesc(req.body.description),
     ingredients: req.body.ingredients,
     directions: req.body.directions,
-    img_url: req.body.img_url
+    img_url: req.body.img_url,
+    recipe_url: req.body.recipe_url,
+    notes: req.body.notes
   });
 
   try {
@@ -64,14 +67,14 @@ async function getRecipe(req, res, next) {
 
 function formatTitle(str) {
   if (str.substring(str.length-1) == ".") {
-    str = str.substring(0, myUrl.length-1);
+    str = str.substring(0, str.length-1);
   }
 
   return str;
 }
 
 function formatDesc(str) {
-  if (str.substring(str.length-1) != "." || str.substring(str.length-1) != "!") {
+  if (str.substring(str.length-1) != "." && str.substring(str.length-1) != "!") {
     str += ".";
   }
 

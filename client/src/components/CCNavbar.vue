@@ -15,12 +15,20 @@
           </v-btn>
         </router-link>
         <v-spacer></v-spacer>
-        <router-link to="/add-recipe">
+        <router-link to="/add-recipe-by-hand">
           <v-btn 
             color="#6D5C88"
             depressed>
             <v-icon left>mdi-book-plus-outline</v-icon>
             Add recipe
+          </v-btn>
+        </router-link>
+        <router-link to="/add-recipe-by-link">
+          <v-btn 
+            color="#6D5C88"
+            depressed>
+            <v-icon left>mdi-link-variant-plus</v-icon>
+            Link recipe
           </v-btn>
         </router-link>
       </v-layout>
