@@ -15,7 +15,7 @@
           </v-btn>
         </router-link>
         <v-spacer></v-spacer>
-        <router-link to="/add-recipe-by-hand">
+        <router-link :to="{ name: 'NewRecipeHand' }">
           <v-btn 
             color="#6D5C88"
             depressed>
@@ -23,7 +23,7 @@
             Add recipe
           </v-btn>
         </router-link>
-        <router-link to="/add-recipe-by-link">
+        <router-link :to="{ name: 'NewRecipeLink' }">
           <v-btn 
             color="#6D5C88"
             depressed>

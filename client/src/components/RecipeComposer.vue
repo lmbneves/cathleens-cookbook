@@ -13,6 +13,22 @@
         <v-container>
           <v-row>
             <v-col
+              cols="8">
+              <v-text-field
+                v-model="title"
+                label="Title"
+                outlined></v-text-field>
+              <v-textarea
+                v-model="description"
+                label="Description"
+                class="recipe-description__input"
+                outlined></v-textarea>
+              <v-text-field
+                v-model="img_url"
+                label="Image URL"
+                outlined></v-text-field>
+            </v-col>
+            <v-col
               cols="4">
               <div class="pt-6 pb-2 pl-6 pr-6 recipe-stats">
                 <v-text-field
@@ -34,22 +50,6 @@
                   class="recipe-stats__input"
                   outlined></v-text-field>
               </div>
-            </v-col>
-            <v-col
-              cols="8">
-              <v-text-field
-                v-model="title"
-                label="Title"
-                outlined></v-text-field>
-              <v-textarea
-                v-model="description"
-                label="Description"
-                class="recipe-description__input"
-                outlined></v-textarea>
-              <v-text-field
-                v-model="img_url"
-                label="Image URL"
-                outlined></v-text-field>
             </v-col>
           </v-row>
           <v-row>

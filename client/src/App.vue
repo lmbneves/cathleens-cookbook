@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <CCNavbar />
+    <AppNavbar />
 
     <v-main>
       <router-view></router-view>
@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import CCNavbar from './components/CCNavbar'
+import AppNavbar from './components/AppNavbar'
 
 export default {
   name: 'App',
   components: { 
-    CCNavbar
+    AppNavbar
   },
   data: function () {
     return {
