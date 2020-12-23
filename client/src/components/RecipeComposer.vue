@@ -77,6 +77,45 @@
             </v-col>
           </v-row>
           <v-row>
+            <v-col
+              cols="12">
+              <v-autocomplete
+                v-model="tags"
+                :items="tag_list"
+                chips
+                clearable
+                deletable-chips
+                multiple
+                label="Tags"
+                item-text="name"
+                item-value="name">
+                <!-- tag chip -->
+                <template v-slot:selection="data">
+                  <v-chip
+                    v-bind="data.attrs"
+                    :input-value="data.selected"
+                    close
+                    outlined
+                    @click="data.select"
+                    @click:close="remove(data.item)">
+                    <v-icon left x-small class="tag-chip__icon">
+                      {{ data.item.icon }}</v-icon>
+                    {{ data.item.name }}
+                  </v-chip>
+                </template>
+
+                <!-- tag list -->
+                <template v-slot:item="data">
+                  <v-icon left x-small class="tag-list__icon">{{ data.item.icon }}</v-icon>
+                  <v-list-item-content>
+                    <v-list-item-title v-html="data.item.name"></v-list-item-title>
+                  </v-list-item-content>
+                </template>
+
+              </v-autocomplete>
+            </v-col>
+          </v-row>
+          <v-row>
             <v-spacer></v-spacer>
             <v-col
               cols="12"
@@ -100,6 +139,7 @@
 <script>
   import axios from 'axios'
   import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, BulletList, OrderedList, ListItem, Link, Blockquote, HardBreak, History } from 'tiptap-vuetify'
+  import tag_map from '../assets/json/tags.json'
 
   export default {
     name: 'RecipeComposer',
@@ -140,10 +180,16 @@
         description: "",
         ingredients: "",
         directions: "",
-        img_url: ""
+        img_url: "",
+        tags: [],
+        tag_list: tag_map["tags"]
       }
     },
     methods: {
+      remove (item) {
+        const index = this.tags.indexOf(item.name)
+        if (index >= 0) this.tags.splice(index, 1)
+      },
       postRecipe: function () {
         axios
           .post('http://localhost:3000/recipes', {
@@ -155,7 +201,8 @@
             description: this.description,
             ingredients: this.ingredients,
             directions: this.directions,
-            img_url: this.img_url
+            img_url: this.img_url,
+            tags: this.tags
           });
       }
     }
@@ -186,5 +233,14 @@
 
 .tiptap-vuetify-editor >>> .ProseMirror {
 	min-height: 160px;
+}
+
+.tag-chip__icon {
+  font-size: 18px !important;
+  margin-left: 0px !important;
+}
+
+.tag-list__icon {
+  font-size: 18px !important;
 }
 </style>

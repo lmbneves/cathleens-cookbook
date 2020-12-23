@@ -12,9 +12,17 @@
     <v-card-text class="recipe-card__desc">
       {{ recipe.description }}
     </v-card-text>
-    
 
     <v-card-actions>
+      <template v-for="tag in recipe.tags.slice(0, 3)">
+        <v-chip 
+          v-bind:key="tag"
+          outlined
+          class="recipe-card__chip">
+          <v-icon left small class="tag-chip__icon">{{ getIcon(tag) }}</v-icon>
+          {{ tag }}
+        </v-chip>
+      </template>
       <v-spacer></v-spacer>
       <v-menu offset-x>
         <template v-slot:activator="{ on, attrs }">
@@ -54,6 +62,7 @@
 
 <script>
   import axios from 'axios'
+  import tag_map from '../assets/json/tags.json'
 
   export default {
     name: 'RecipeCard',
@@ -61,6 +70,10 @@
       recipe: null
     },
     methods: {
+      getIcon: function (tag) {
+        var res = tag_map["tags"].find(obj => { return obj.name === tag });
+        return res.icon;
+      },
       deleteRecipe: function () {
 
         if (confirm("Are you sure you want to delete this recipe?")) {
@@ -77,6 +90,10 @@
 </script>
 
 <style scoped>
+.recipe-card__chip {
+  margin: 0px 2px;
+}
+
 .recipe-card__edit a {
   text-decoration: none;
   width: 100%;

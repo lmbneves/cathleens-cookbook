@@ -17,6 +17,10 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     required: true
   }, 
+  tags: {
+    type: [],
+    required: false
+  },
 
   // add method is by "hand"
   prep_time: {

@@ -1,0 +1,29 @@
+{
+  "tags": [
+    {
+      "name": "dinner",
+      "color": "",
+      "icon": "mdi-food-variant"
+    },
+    {
+      "name": "breakfast",
+      "color": "",
+      "icon": "mdi-food-croissant"
+    },
+    {
+      "name": "dessert",
+      "color": "",
+      "icon": "mdi-cookie"
+    },
+    {
+      "name": "drink",
+      "color": "",
+      "icon": "mdi-glass-cocktail"
+    },
+    {
+      "name": "fish",
+      "color": "",
+      "icon": "mdi-fish"
+    }
+  ]
+}
