@@ -47,6 +47,11 @@
         <v-row>
           <v-spacer></v-spacer>
           <v-col
+            cols="7">
+            <h1 class="mb-2 recipe-title">{{ recipe.title }}</h1>
+            <h3 class="recipe-subtitle">{{ recipe.description }}</h3>
+          </v-col>
+          <v-col
             cols="3">
             <div class="pt-6 pb-2 pl-6 pr-6 recipe-stats">
               <p>
@@ -64,11 +69,6 @@
             </div>
           </v-col>
           <v-spacer></v-spacer>
-          <v-col
-            cols="7">
-            <h1 class="mb-2 recipe-title">{{ recipe.title }}</h1>
-            <h3 class="recipe-subtitle">{{ recipe.description }}</h3>
-          </v-col>
         </v-row>
         <v-row>
           <div style="height: 20px;"></div>
