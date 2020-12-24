@@ -150,7 +150,7 @@
       },
       postRecipe: function () {
         axios
-          .post('http://localhost:3000/recipes', {
+          .post('https://protected-bastion-86315.herokuapp.com/recipes', {
             title: this.title,
             add_method: "link",
             description: this.description,

@@ -83,7 +83,7 @@
 
         if (confirm("Are you sure you want to delete this recipe?")) {
           axios
-            .delete('http://localhost:3000/recipes/' + this.recipe._id)
+            .delete('https://protected-bastion-86315.herokuapp.com/recipes/' + this.recipe._id)
             .then((res) => {
               console.log(res);
               location.reload();

@@ -105,7 +105,7 @@
     methods: {
       getRecipe: function () {
         axios
-          .get('http://localhost:3000/recipes/' + this.$route.params.id )
+          .get('https://protected-bastion-86315.herokuapp.com/recipes/' + this.$route.params.id )
           .then((res) => {
             this.recipe = res.data;
           })
