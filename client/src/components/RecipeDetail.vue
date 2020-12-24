@@ -14,8 +14,20 @@
           <v-spacer></v-spacer>
           <v-col
             cols="6">
-            <h1 class="mb-2 recipe-title">{{ recipe.title }}</h1>
+            <h1 class="mb-4 recipe-title">{{ recipe.title }}</h1>
             <h3 class="recipe-subtitle">{{ recipe.description }}</h3>
+            <div class="recipe-chip__wrapper">
+              <template v-for="tag in recipe.tags">
+                <v-chip 
+                  v-bind:key="tag"
+                  outlined
+                  :color="getTagColor(tag)"
+                  class="recipe-chip">
+                  <v-icon left small class="tag-chip__icon">{{ getTagIcon(tag) }}</v-icon>
+                  {{ tag }}
+                </v-chip>
+              </template>
+            </div>
             <div v-if="recipe.notes" class="mt-10">
               <br />
               <h2 class="pb-4">Notes</h2>
@@ -47,24 +59,43 @@
         <v-row>
           <v-spacer></v-spacer>
           <v-col
-            cols="7">
-            <h1 class="mb-2 recipe-title">{{ recipe.title }}</h1>
+            cols="12"
+            md="8">
+            <h1 class="mb-4 recipe-title">{{ recipe.title }}</h1>
             <h3 class="recipe-subtitle">{{ recipe.description }}</h3>
+            <div class="recipe-chip__wrapper">
+              <template v-for="tag in recipe.tags">
+                <v-chip 
+                  v-bind:key="tag"
+                  outlined
+                  :color="getTagColor(tag)"
+                  class="recipe-chip">
+                  <v-icon left small class="tag-chip__icon">{{ getTagIcon(tag) }}</v-icon>
+                  {{ tag }}
+                </v-chip>
+              </template>
+            </div>
           </v-col>
-          <v-spacer></v-spacer>
           <v-col
-            cols="3">
-            <div class="pt-6 pb-2 pl-6 pr-6 recipe-stats">
+            cols="12"
+            md="3">
+            <div class="mt-3 pt-6 pb-2 pl-6 pr-6 recipe-stats">
               <p>
-                <v-icon class="recipe-stats__icon">mdi-alarm-check</v-icon>
+                <v-icon 
+                  color="#2D3040"
+                  class="recipe-stats__icon">mdi-alarm-check</v-icon>
                 <span class="recipe-stats__content">{{ recipe.prep_time }}</span>
               </p>
               <p>
-                <v-icon class="recipe-stats__icon">mdi-pot-steam</v-icon>
+                <v-icon 
+                  color="#2D3040" 
+                  class="recipe-stats__icon">mdi-pot-steam</v-icon>
                 <span class="recipe-stats__content">{{ recipe.cook_time }}</span>
               </p>
               <p>
-                <v-icon class="recipe-stats__icon">mdi-account-multiple</v-icon>
+                <v-icon 
+                  color="#2D3040"
+                  class="recipe-stats__icon">mdi-account-multiple</v-icon>
                 <span class="recipe-stats__content">{{ recipe.servings }}</span>
               </p>
             </div>
@@ -76,15 +107,19 @@
         <v-row>
           <v-spacer></v-spacer>
           <v-col
-            cols="3">
+            cols="12"
+            md="3">
             <h2 class="pb-4">Ingredients</h2>
             <p v-html="recipe.ingredients" class="pr-6 recipe-ingredients__content"></p>
           </v-col>
+          
           <v-col
-            cols="8">
+            cols="12"
+            md="7">
             <h2 class="pb-4">Directions</h2>
             <p v-html="recipe.directions" class="recipe-directions__content"></p>
           </v-col>
+          <v-spacer></v-spacer>
         </v-row>
       </v-container>
     </template>
@@ -93,6 +128,7 @@
 
 <script>
   import axios from 'axios'
+  import tag_map from '../assets/json/tags.json'
 
   export default {
     name: 'RecipeDetail',
@@ -102,6 +138,14 @@
       }
     },
     methods: {
+      getTagIcon: function (tag) {
+        var res = tag_map["tags"].find(obj => { return obj.name === tag });
+        return res.icon;
+      },
+      getTagColor: function (tag) {
+        var res = tag_map["tags"].find(obj => { return obj.name === tag });
+        return res.color;
+      },
       getRecipe: function () {
         axios
           .get('https://protected-bastion-86315.herokuapp.com/recipes/' + this.$route.params.id )
@@ -121,11 +165,22 @@
   font-family: 'Oleo Script', sans-serif;
   font-size: 42pt;
   word-spacing: 3pt;
+  line-height: 3rem;
 }
 
 .recipe-subtitle {
   font-size: 14pt;
   font-weight: 300;
+  margin-left: 7px;
+  font-style: italic;
+}
+
+.recipe-chip__wrapper {
+  margin-top: 34px;
+}
+
+.recipe-chip {
+  margin: 0px 4px;
 }
 
 .goto-recipe__link {
