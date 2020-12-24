@@ -18,8 +18,9 @@
         <v-chip 
           v-bind:key="tag"
           outlined
+          :color="getTagColor(tag)"
           class="recipe-card__chip">
-          <v-icon left small class="tag-chip__icon">{{ getIcon(tag) }}</v-icon>
+          <v-icon left small class="tag-chip__icon">{{ getTagIcon(tag) }}</v-icon>
           {{ tag }}
         </v-chip>
       </template>
@@ -28,7 +29,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             align="right"
-            color="#6D5C88"
+            color="#8372A6"
             icon
             v-bind="attrs"
             v-on="on">
@@ -70,9 +71,13 @@
       recipe: null
     },
     methods: {
-      getIcon: function (tag) {
+      getTagIcon: function (tag) {
         var res = tag_map["tags"].find(obj => { return obj.name === tag });
         return res.icon;
+      },
+      getTagColor: function (tag) {
+        var res = tag_map["tags"].find(obj => { return obj.name === tag });
+        return res.color;
       },
       deleteRecipe: function () {
 

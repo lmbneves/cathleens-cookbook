@@ -60,7 +60,7 @@
                   v-model="ingredients"
                   :extensions="ing_extensions"
                   :card-props="{ outlined: true }"
-                  :toolbar-attributes="{ color: '#B7B8CA' }"
+                  :toolbar-attributes="{ color: '#BBBAD0' }"
                   placeholder="List recipe ingredients..."
                   />
             </v-col>
@@ -70,7 +70,7 @@
               <tiptap-vuetify
                   v-model="directions"
                   :extensions="dir_extensions"
-                  :toolbar-attributes="{ color: '#B7B8CA' }"
+                  :toolbar-attributes="{ color: '#BBBAD0' }"
                   :card-props="{ outlined: true }"
                   placeholder="Provide recipe instructions..."
                   />
@@ -96,6 +96,7 @@
                     :input-value="data.selected"
                     close
                     outlined
+                    :color="data.item.color"
                     @click="data.select"
                     @click:close="remove(data.item)">
                     <v-icon left x-small class="tag-chip__icon">
@@ -106,7 +107,11 @@
 
                 <!-- tag list -->
                 <template v-slot:item="data">
-                  <v-icon left x-small class="tag-list__icon">{{ data.item.icon }}</v-icon>
+                  <v-icon 
+                    left 
+                    x-small 
+                    :color="data.item.color"
+                    class="tag-list__icon">{{ data.item.icon }}</v-icon>
                   <v-list-item-content>
                     <v-list-item-title v-html="data.item.name"></v-list-item-title>
                   </v-list-item-content>
@@ -123,7 +128,7 @@
               <v-btn
                 dark
                 large
-                color="#7C6A9C"
+                color="#2D3040"
                 type="submit"
                 v-on:click="postRecipe">
                 Add Recipe
@@ -211,7 +216,7 @@
 
 <style scoped>
 .recipe-stats {
-  background-color: #B7B8CA;
+  background-color: #BBBAD0;
   border-radius: 2px;
 }
 

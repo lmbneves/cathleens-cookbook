@@ -4,7 +4,7 @@
       <v-img
         width="100%"
         height="400px"
-        :src=recipe.img_url> 
+        :src="recipe.img_url"> 
       </v-img>
     </div>
     <!-- link view -->

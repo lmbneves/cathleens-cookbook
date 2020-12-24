@@ -2,28 +2,103 @@
   "tags": [
     {
       "name": "dinner",
-      "color": "",
+      "color": "#B5564F",
       "icon": "mdi-food-variant"
     },
     {
+      "name": "quick",
+      "color": "#D9C6B0",
+      "icon": "mdi-lightning-bolt"
+    },
+    {
       "name": "breakfast",
-      "color": "",
+      "color": "#727FB3",
       "icon": "mdi-food-croissant"
     },
     {
+      "name": "salad",
+      "color": "#7BA68C",
+      "icon": "mdi-bowl-mix"
+    },
+    {
       "name": "dessert",
-      "color": "",
+      "color": "#AB72B3",
       "icon": "mdi-cookie"
     },
     {
       "name": "drink",
-      "color": "",
+      "color": "#2D3040",
       "icon": "mdi-glass-cocktail"
     },
     {
+      "name": "meat",
+      "color": "#6A88A6",
+      "icon": "mdi-cow"
+    },
+    {
+      "name": "pasta",
+      "color": "#D9C14A",
+      "icon": "mdi-pasta"
+    },
+    {
+      "name": "chicken",
+      "color": "#A66E6A",
+      "icon": "mdi-food-drumstick"
+    },
+    {
       "name": "fish",
-      "color": "",
+      "color": "#F2746B",
       "icon": "mdi-fish"
+    },
+    {
+      "name": "snack",
+      "color": "#F2AE3A",
+      "icon": "mdi-popcorn"
+    },
+    {
+      "name": "complex",
+      "color": "#38A6A3",
+      "icon": "mdi-chef-hat"
+    },
+    {
+      "name": "vegetable",
+      "color": "#BF6E41",
+      "icon": "mdi-carrot"
+    },
+    {
+      "name": "smoothie",
+      "color": "#483B59",
+      "icon": "mdi-blender"
+    },
+    {
+      "name": "spicy",
+      "color": "#D93F34",
+      "icon": "mdi-chili-mild"
+    },
+    {
+      "name": "fruity",
+      "color": "#A61F86",
+      "icon": "mdi-fruit-cherries"
+    },
+    {
+      "name": "bread",
+      "color": "#F2A377",
+      "icon": "mdi-baguette"
+    },
+    {
+      "name": "baked goods",
+      "color": "#BBBAD0",
+      "icon": "mdi-stove"
+    },
+    {
+      "name": "soups & stews",
+      "color": "#A3A68B",
+      "icon": "mdi-pot-mix"
+    },
+    {
+      "name": "family recipe",
+      "color": "#A67E7B",
+      "icon": "mdi-home-heart"
     }
   ]
 }
