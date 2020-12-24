@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "publish-heroku": "cd ../ && git subtree push --prefix server heroku-server master || true"
   },
   "author": "",
   "license": "ISC",
