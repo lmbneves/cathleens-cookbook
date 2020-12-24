@@ -51,6 +51,7 @@
             <h1 class="mb-2 recipe-title">{{ recipe.title }}</h1>
             <h3 class="recipe-subtitle">{{ recipe.description }}</h3>
           </v-col>
+          <v-spacer></v-spacer>
           <v-col
             cols="3">
             <div class="pt-6 pb-2 pl-6 pr-6 recipe-stats">
@@ -68,7 +69,6 @@
               </p>
             </div>
           </v-col>
-          <v-spacer></v-spacer>
         </v-row>
         <v-row>
           <div style="height: 20px;"></div>
@@ -78,13 +78,12 @@
           <v-col
             cols="3">
             <h2 class="pb-4">Ingredients</h2>
-            <p v-html="recipe.ingredients" class="recipe-ingredients__content"></p>
+            <p v-html="recipe.ingredients" class="pr-6 recipe-ingredients__content"></p>
           </v-col>
-          <v-spacer></v-spacer>
           <v-col
-            cols="7">
+            cols="8">
             <h2 class="pb-4">Directions</h2>
-            <p v-html="recipe.directions"></p>
+            <p v-html="recipe.directions" class="recipe-directions__content"></p>
           </v-col>
         </v-row>
       </v-container>
@@ -151,5 +150,13 @@
 .recipe-ingredients__content {
   min-height: 200px;
   border-right: 1px solid #AFABC3;
+}
+
+.recipe-directions__content >>> ol {
+  padding-right: 30px;
+}
+
+.recipe-directions__content >>> li {
+  padding-left: 10px;
 }
 </style>

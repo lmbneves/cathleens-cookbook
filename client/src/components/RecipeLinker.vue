@@ -158,9 +158,10 @@
             img_url: this.img_url,
             notes: this.notes,
             tags: this.tags
-          }).then(
-            this.$router.push({ name: "Home" })
-          );
+          }).then(() => {
+            this.$router.push({ name: "Home" });
+            location.reload();
+          });
       }
     }
   }
