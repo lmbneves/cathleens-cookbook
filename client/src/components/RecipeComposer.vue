@@ -208,7 +208,9 @@
             directions: this.directions,
             img_url: this.img_url,
             tags: this.tags
-          });
+          }).then(
+            this.$router.push({ name: "Home" })
+          );
       }
     }
   }
