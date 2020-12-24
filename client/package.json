@@ -17,7 +17,8 @@
     "tiptap-vuetify": "^2.24.0",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9",
-    "vuetify": "^2.2.11"
+    "vuetify": "^2.2.11",
+    "express": "*"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
