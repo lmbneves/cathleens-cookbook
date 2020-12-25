@@ -38,18 +38,21 @@
                   label="Prep time"
                   prepend-inner-icon="mdi-alarm-check"
                   class="recipe-stats__input"
+                  hint="e.g., 1 hour and 15 minutes"
                   outlined></v-text-field>
                 <v-text-field
                   v-model="cook_time"
                   label="Cook time"
                   prepend-inner-icon="mdi-pot-steam"
                   class="recipe-stats__input"
+                  hint="e.g., 1 hour and 15 minutes"
                   outlined></v-text-field>
                 <v-text-field
                   v-model="servings"
                   label="How many served?"
                   prepend-inner-icon="mdi-account-multiple"
                   class="recipe-stats__input"
+                  hint="e.g., 4 people"
                   outlined></v-text-field>
               </div>
             </v-col>
