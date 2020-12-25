@@ -168,6 +168,7 @@
   font-size: 42pt;
   word-spacing: 3pt;
   line-height: 3rem;
+  text-transform: capitalize;
 }
 
 .recipe-subtitle {

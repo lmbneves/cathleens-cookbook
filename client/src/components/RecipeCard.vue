@@ -95,6 +95,10 @@
 </script>
 
 <style scoped>
+.recipe-card__title {
+  text-transform: capitalize;
+}
+
 .recipe-card__chip {
   margin: 0px 2px;
 }
