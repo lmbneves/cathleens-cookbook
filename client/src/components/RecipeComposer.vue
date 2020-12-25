@@ -13,7 +13,8 @@
         <v-container>
           <v-row>
             <v-col
-              cols="8">
+              cols="12"
+              md="8">
               <v-text-field
                 v-model="title"
                 label="Title"
@@ -29,7 +30,8 @@
                 outlined></v-text-field>
             </v-col>
             <v-col
-              cols="4">
+              cols="12"
+              md="4">
               <div class="pt-6 pb-2 pl-6 pr-6 recipe-stats">
                 <v-text-field
                   v-model="prep_time"
@@ -54,7 +56,8 @@
           </v-row>
           <v-row>
             <v-col
-              cols="4">
+              cols="12"
+              md="4">
               <h2 class="pb-4">Ingredients</h2>
               <tiptap-vuetify
                   v-model="ingredients"
@@ -65,7 +68,8 @@
                   />
             </v-col>
             <v-col
-              cols="8">
+              cols="12"
+              md="8">
               <h2 class="pb-4">Directions</h2>
               <tiptap-vuetify
                   v-model="directions"
