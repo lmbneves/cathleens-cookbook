@@ -80,6 +80,8 @@ function formatTitle(str) {
 }
 
 function formatDesc(str) {
+  str = str.trim();
+  
   if (str.substring(str.length-1) != "." && str.substring(str.length-1) != "!") {
     str += ".";
   }
