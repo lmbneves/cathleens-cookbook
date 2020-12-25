@@ -11,11 +11,6 @@
       "icon": "mdi-lightning-bolt"
     },
     {
-      "name": "breakfast",
-      "color": "#727FB3",
-      "icon": "mdi-food-croissant"
-    },
-    {
       "name": "salad",
       "color": "#7BA68C",
       "icon": "mdi-bowl-mix"
@@ -56,14 +51,14 @@
       "icon": "mdi-popcorn"
     },
     {
-      "name": "complex",
-      "color": "#38A6A3",
-      "icon": "mdi-chef-hat"
-    },
-    {
       "name": "vegetable",
       "color": "#BF6E41",
       "icon": "mdi-carrot"
+    },
+    {
+      "name": "nate-unfriendly",
+      "color": "#B84393",
+      "icon": "mdi-emoticon-dead-outline"
     },
     {
       "name": "smoothie",
@@ -89,6 +84,11 @@
       "name": "baked goods",
       "color": "#BBBAD0",
       "icon": "mdi-stove"
+    },
+    {
+      "name": "breakfast",
+      "color": "#727FB3",
+      "icon": "mdi-food-croissant"
     },
     {
       "name": "soups & stews",
@@ -129,6 +129,11 @@
       "name": "glazes & marinades",
       "color": "#763297",
       "icon": "mdi-flask-round-bottom"
+    },
+    {
+      "name": "complex",
+      "color": "#38A6A3",
+      "icon": "mdi-chef-hat"
     }
   ]
 }
