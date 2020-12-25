@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <router-link :to="{ path: '/recipes/' + recipe._id }">
+    <router-link :to="{ name: 'RecipeDetail', params: { id: recipe._id } }">
       <v-img
         class="white--text align-end"
         height="200px"
@@ -37,6 +37,17 @@
           </v-btn>
         </template>
         <v-list>
+          <v-list-item class="recipe-card__action">
+            <router-link 
+              class="recipe-card__view"
+              :to="{ name: 'RecipeDetail', params: { id: recipe._id } }">
+              <v-btn
+                width="100%"
+                depressed>
+                View
+              </v-btn>
+            </router-link>
+          </v-list-item>
           <!-- <v-list-item>
             <router-link 
               v-if="recipe.add_method === 'link'">
@@ -47,7 +58,7 @@
               </v-btn>
             </router-link>
           </v-list-item> -->
-          <v-list-item>
+          <v-list-item class="recipe-card__action">
             <v-btn
               width="100%"
               depressed
@@ -103,7 +114,7 @@
   margin: 0px 2px;
 }
 
-.recipe-card__edit a {
+.recipe-card__action a {
   text-decoration: none;
   width: 100%;
 }

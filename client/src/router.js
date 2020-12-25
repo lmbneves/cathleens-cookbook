@@ -7,5 +7,5 @@ export const routes = [
   { path: '/', name: 'Home', component: RecipeList },
   { path: '/new-recipe-hand', name: 'NewRecipeHand', component: RecipeComposer },
   { path: '/new-recipe-link', name: 'NewRecipeLink', component: RecipeLinker },
-  { path: '/recipes/:id', component: RecipeDetail }
+  { path: '/recipes/:id', name: 'RecipeDetail', component: RecipeDetail, params: true }
 ]
