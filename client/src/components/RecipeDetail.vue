@@ -13,8 +13,9 @@
         <v-row>
           <v-spacer></v-spacer>
           <v-col
-            cols="6">
-            <h1 class="mb-4 recipe-title">{{ recipe.title }}</h1>
+            cols="12"
+            md="6">
+            <h1 class="mt-4 mb-4 recipe-title">{{ recipe.title }}</h1>
             <h3 class="recipe-subtitle">{{ recipe.description }}</h3>
             <div class="recipe-chip__wrapper">
               <template v-for="tag in recipe.tags">
@@ -35,7 +36,8 @@
             </div> 
           </v-col>
           <v-col
-            cols="2">
+            cols="12"
+            md="2">
             <v-btn
               class="mt-4"
               color="#B28A82"
@@ -61,7 +63,7 @@
           <v-col
             cols="12"
             md="8">
-            <h1 class="mb-4 recipe-title">{{ recipe.title }}</h1>
+            <h1 class="mt-4 mb-4 recipe-title">{{ recipe.title }}</h1>
             <h3 class="recipe-subtitle">{{ recipe.description }}</h3>
             <div class="recipe-chip__wrapper">
               <template v-for="tag in recipe.tags">
@@ -176,7 +178,7 @@
 }
 
 .recipe-chip__wrapper {
-  margin-top: 34px;
+  margin-top: 24px;
 }
 
 .recipe-chip {
