@@ -9,6 +9,7 @@
         </v-col>
       </v-row>
       <v-form 
+        @submit.prevent="submitRecipe"
         ref="add-recipe-form">
         <v-container>
           <v-row>
@@ -17,19 +18,35 @@
               <v-text-field
                 v-model="title"
                 label="Title"
+                :error-messages="titleErrors"
+                required
+                @input="$v.title.$touch()"
+                @blur="$v.title.$touch()"
                 outlined></v-text-field>
               <v-textarea
                 v-model="description"
                 label="Description"
+                :error-messages="descErrors"
+                required
+                @input="$v.description.$touch()"
+                @blur="$v.description.$touch()"
                 class="recipe-description__input"
                 outlined></v-textarea>
               <v-text-field
                 v-model="recipe_url"
                 label="Recipe URL"
+                :error-messages="recipeErrors"
+                required
+                @input="$v.recipe_url.$touch()"
+                @blur="$v.recipe_url.$touch()"
                 outlined></v-text-field>
               <v-text-field
                 v-model="img_url"
                 label="Image URL"
+                :error-messages="imgErrors"
+                required
+                @input="$v.img_url.$touch()"
+                @blur="$v.img_url.$touch()"
                 outlined></v-text-field>
               <tiptap-vuetify
                   v-model="notes"
@@ -94,9 +111,12 @@
                 large
                 color="#2D3040"
                 type="submit"
-                v-on:click="postRecipe">
+                :disabled="submitStatus === 'PENDING'">
                 Add Recipe Link
               </v-btn>
+              <p class="pt-4 submit-status__ok" v-if="submitStatus === 'OK'">Your recipe has been added!</p>
+              <p class="pt-4 submit-status__fail" v-if="submitStatus === 'ERROR'">Please review your recipe for errors.</p>
+              <p class="pt-4 submit-status__pending" v-if="submitStatus === 'PENDING'">Sending recipe...</p>
             </v-col>
           </v-row>
         </v-container>
@@ -107,6 +127,8 @@
 
 <script>
   import axios from 'axios'
+  import { validationMixin } from 'vuelidate'
+  import { required, minLength, url } from 'vuelidate/lib/validators'
   import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, BulletList, OrderedList, ListItem, Link, Blockquote, HardBreak, History } from 'tiptap-vuetify'
   import tag_map from '../assets/json/tags.json'
 
@@ -115,6 +137,7 @@
     components: { TiptapVuetify },
     data: function () {
       return {
+        submitStatus: null,
         notes_extensions: [
           History,
           Bold,
@@ -143,10 +166,61 @@
         tag_list: tag_map["tags"]
       }
     },
+    mixins: [validationMixin],
+    validations: {
+      title: { required, minLength: minLength(5) },
+      description: { required },
+      img_url: { required, url },
+      recipe_url: { required, url },
+      prep_time: { required },
+      cook_time: { required },
+      servings: { required }
+    },
+    computed: {
+      titleErrors() {
+        const errors = [];
+        if (!this.$v.title.$dirty) return errors;
+        !this.$v.title.minLength && errors.push('Title must be at least 5 characters long');
+        !this.$v.title.required && errors.push('Title is required');
+        return errors;
+      },
+      descErrors() {
+        const errors = [];
+        if (!this.$v.description.$dirty) return errors;
+        !this.$v.description.required && errors.push('Description is required');
+        return errors;
+      },
+      imgErrors() {
+        const errors = [];
+        if (!this.$v.img_url.$dirty) return errors;
+        !this.$v.img_url.required && errors.push('Image URL is required');
+        !this.$v.img_url.url && errors.push('Image URL must be a valid URL');
+        return errors;
+      },
+      recipeErrors() {
+        const errors = [];
+        if (!this.$v.recipe_url.$dirty) return errors;
+        !this.$v.recipe_url.required && errors.push('Recipe URL is required');
+        !this.$v.recipe_url.url && errors.push('Recipe URL must be a valid URL');
+        return errors;
+      }
+    },
     methods: {
       remove (item) {
         const index = this.tags.indexOf(item.name)
         if (index >= 0) this.tags.splice(index, 1)
+      },
+      submitRecipe() {
+        this.$v.$touch()
+        if (this.$v.$invalid) {
+          this.submitStatus = 'ERROR';
+        } else {
+          this.postRecipe();
+          this.submitStatus = 'PENDING';
+          setTimeout(() => {
+            this.submitStatus = 'OK';
+          }, 500);
+        }
       },
       postRecipe: function () {
         axios
@@ -182,5 +256,13 @@
 
 .tiptap-vuetify-editor >>> .ProseMirror {
 	min-height: 160px;
+}
+
+.submit-status__ok, .submit-status__pending {
+  
+}
+
+.submit-status__fail {
+  color: red;
 }
 </style>

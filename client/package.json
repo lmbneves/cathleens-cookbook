@@ -19,6 +19,7 @@
     "tiptap-vuetify": "^2.24.0",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9",
+    "vuelidate": "^0.7.6",
     "vuetify": "^2.2.11"
   },
   "devDependencies": {
