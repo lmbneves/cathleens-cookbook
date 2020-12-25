@@ -99,6 +99,11 @@
       "name": "family recipe",
       "color": "#A67E7B",
       "icon": "mdi-home-heart"
+    },
+    {
+      "name": "party",
+      "color": "#D63D9C",
+      "icon": "mdi-balloon"
     }
   ]
 }
