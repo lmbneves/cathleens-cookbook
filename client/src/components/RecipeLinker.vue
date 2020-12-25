@@ -258,10 +258,6 @@
 	min-height: 160px;
 }
 
-.submit-status__ok, .submit-status__pending {
-  
-}
-
 .submit-status__fail {
   color: red;
 }

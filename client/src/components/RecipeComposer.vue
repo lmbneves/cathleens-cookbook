@@ -351,10 +351,6 @@
   font-size: 18px !important;
 }
 
-.submit-status__ok, .submit-status__pending {
-  
-}
-
 .submit-status__fail {
   color: red;
 }
