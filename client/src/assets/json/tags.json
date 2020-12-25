@@ -37,13 +37,13 @@
     },
     {
       "name": "pasta",
-      "color": "#D9C14A",
+      "color": "#DB3732",
       "icon": "mdi-pasta"
     },
     {
-      "name": "chicken",
+      "name": "poultry",
       "color": "#A66E6A",
-      "icon": "mdi-food-drumstick"
+      "icon": "mdi-twitter"
     },
     {
       "name": "fish",
@@ -92,18 +92,38 @@
     },
     {
       "name": "soups & stews",
-      "color": "#A3A68B",
+      "color": "#378F6A",
       "icon": "mdi-pot-mix"
     },
     {
       "name": "family recipe",
-      "color": "#A67E7B",
+      "color": "#912620",
       "icon": "mdi-home-heart"
     },
     {
       "name": "party",
       "color": "#D63D9C",
       "icon": "mdi-balloon"
+    },
+    {
+      "name": "dips",
+      "color": "#7BB84C",
+      "icon": "mdi-bowl"
+    },
+    {
+      "name": "fried",
+      "color": "#D16A47",
+      "icon": "mdi-food-drumstick"
+    },
+    {
+      "name": "bbq",
+      "color": "#556D85",
+      "icon": "mdi-food-steak"
+    },
+    {
+      "name": "potato",
+      "color": "#857A69",
+      "icon": "mdi-barley"
     }
   ]
 }
