@@ -37,11 +37,11 @@ const recipeSchema = new mongoose.Schema({
   },
   ingredients: {
     type: String,
-    required: function() { return this.add_method === 'hand'; }
+    required: false
   },
   directions: {
     type: String,
-    required: function() { return this.add_method === 'hand'; }
+    required: false
   },
 
   // add method is by "link"
