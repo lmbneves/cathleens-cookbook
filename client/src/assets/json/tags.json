@@ -124,6 +124,11 @@
       "name": "potato",
       "color": "#857A69",
       "icon": "mdi-barley"
+    },
+    {
+      "name": "glazes & marinades",
+      "color": "#763297",
+      "icon": "mdi-flask-round-bottom"
     }
   ]
 }
