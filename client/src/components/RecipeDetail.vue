@@ -112,13 +112,12 @@
             cols="12"
             md="3">
             <h2 class="pb-4">Ingredients</h2>
-            <p v-html="recipe.ingredients" class="pr-6 recipe-ingredients__content"></p>
+            <p v-html="recipe.ingredients" class="recipe-ingredients__content"></p>
           </v-col>
-          
           <v-col
             cols="12"
             md="7">
-            <h2 class="pb-4">Directions</h2>
+            <h2 class="pb-4 recipe-directions__title">Directions</h2>
             <p v-html="recipe.directions" class="recipe-directions__content"></p>
           </v-col>
           <v-spacer></v-spacer>
@@ -205,9 +204,14 @@
   margin-left: 8px;
 }
 
-.recipe-ingredients__content {
-  min-height: 200px;
-  border-right: 1px solid #AFABC3;
+.recipe-directions__title {
+  padding-left: 46px;
+}
+
+.recipe-directions__content {
+  min-height: 300px;
+  border-left: 1px solid #AFABC3;
+  padding-left: 40px;
 }
 
 .recipe-directions__content >>> ol {
@@ -216,5 +220,17 @@
 
 .recipe-directions__content >>> li {
   padding-left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .recipe-directions__title {
+    padding-left: 0px;
+  }
+
+  .recipe-directions__content {
+    min-height: 400px;
+    padding-left: 0px;
+    border: 0px;
+  }
 }
 </style>
