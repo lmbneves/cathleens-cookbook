@@ -171,10 +171,7 @@
       title: { required, minLength: minLength(5) },
       description: { required },
       img_url: { required, url },
-      recipe_url: { required, url },
-      prep_time: { required },
-      cook_time: { required },
-      servings: { required }
+      recipe_url: { required, url }
     },
     computed: {
       titleErrors() {
