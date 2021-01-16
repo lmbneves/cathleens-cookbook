@@ -14,7 +14,8 @@
         <v-container>
           <v-row>
             <v-col
-              cols="12">
+              cols="12"
+              md="6">
               <v-text-field
                 v-model="title"
                 label="Title"
@@ -48,13 +49,17 @@
                 @input="$v.img_url.$touch()"
                 @blur="$v.img_url.$touch()"
                 outlined></v-text-field>
+            </v-col>
+            <v-col
+              cols="12"
+              md="6">
               <tiptap-vuetify
-                  v-model="notes"
-                  :extensions="notes_extensions"
-                  :toolbar-attributes="{ color: '#BBBAD0' }"
-                  :card-props="{ outlined: true }"
-                  placeholder="Leave some notes of your own!"
-                  />
+                v-model="notes"
+                :extensions="notes_extensions"
+                :toolbar-attributes="{ color: '#BBBAD0' }"
+                :card-props="{ outlined: true }"
+                placeholder="Leave some notes of your own!"
+                />
             </v-col>
           </v-row>
           <v-row>
@@ -248,7 +253,7 @@
 }
 
 .tiptap-vuetify-editor >>> .tiptap-vuetify-editor__content {
-	min-height: 160px;
+	min-height: 300px;
 }
 
 .tiptap-vuetify-editor >>> .ProseMirror {
