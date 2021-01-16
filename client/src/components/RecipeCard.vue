@@ -111,6 +111,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: inherit;
 }
 
 .recipe-card__desc {
